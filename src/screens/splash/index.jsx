@@ -32,7 +32,7 @@ const SplashScreen = ({navigation}) => {
     if (!firebase.apps.length) {
       firebase.initializeApp(config);
     }
-    navigation.navigate('HomeScreen');
+    navigation.navigate('Maps');
   }, []);
 
   return (

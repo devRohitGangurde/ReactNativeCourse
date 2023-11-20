@@ -5,7 +5,7 @@ import {View, Text, StyleSheet, ScrollView} from 'react-native';
 import database from '@react-native-firebase/database';
 import ItemComponent from '../../common/components/ItemComponent';
 
-let itemsRef = database().ref('/items');
+let itemsRef = database().ref('/student');
 
 export default function ItemList() {
   const [itemsArray, setItemsArray] = React.useState([]);

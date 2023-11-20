@@ -15,6 +15,7 @@ import FirebaseExample from '../screens/firebase/ItemList';
 import HomeScreen from '../screens/firebase/HomeScreen';
 import AddItem from '../screens/firebase/AddItem';
 import ItemList from '../screens/firebase/ItemList';
+import Maps from '../screens/googleMap/Maps';
 
 const Navigation = () => {
   const Stack = createNativeStackNavigator();
@@ -46,6 +47,11 @@ const Navigation = () => {
           options={{title: 'Firebase List'}}
           name="ItemList"
           component={ItemList}
+        />
+        <Stack.Screen
+          options={{title: 'Google Map Example '}}
+          name="Maps"
+          component={Maps}
         />
       </Stack.Navigator>
     </NavigationContainer>

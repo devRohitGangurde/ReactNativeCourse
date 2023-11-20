@@ -10,17 +10,19 @@ import {
 
 import database from '@react-native-firebase/database';
 
-let addItem = (item: string) => {
-  database().ref('/items').push({
-    name: item,
+let addItem = (firstName: string, lastName: string) => {
+  database().ref('/student').push({
+    firstName: firstName,
+    lastName: lastName,
   });
 };
 
 export default function AddItem({navigation}) {
-  const [name, onChangeText] = React.useState('');
+  const [firstName, setFirstName] = React.useState('');
+  const [lastName, setLastName] = React.useState('');
 
   const handleSubmit = () => {
-    addItem(name);
+    addItem(firstName, lastName);
     Alert.alert('Item saved successfully');
     navigation.goBack();
   };
@@ -29,7 +31,13 @@ export default function AddItem({navigation}) {
       <Text style={styles.title}>Add Item</Text>
       <TextInput
         style={styles.itemInput}
-        onChangeText={text => onChangeText(text)}
+        placeholder="Enter FirstName"
+        onChangeText={text => setFirstName(text)}
+      />
+      <TextInput
+        style={styles.itemInput}
+        placeholder="Enter LastName"
+        onChangeText={text => setLastName(text)}
       />
       <TouchableHighlight
         style={styles.button}
@@ -63,6 +71,7 @@ const styles = StyleSheet.create({
     borderColor: 'white',
     borderRadius: 8,
     color: 'white',
+    marginTop: 10,
   },
   buttonText: {
     fontSize: 18,

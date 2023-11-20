@@ -5,7 +5,7 @@ import database from '@react-native-firebase/database';
 
 export default function ItemComponent({items}: any) {
   const onDelete = async () => {
-    await database().ref('/items/-NjWacFmh0wiEuNwIBHs').remove();
+    await database().ref('/student/-Njh0g-DqwaRWIXaGWQg').remove();
   };
 
   return (
@@ -13,6 +13,7 @@ export default function ItemComponent({items}: any) {
       {items?.map(
         (
           item: {
+            [x: string]: ReactNode;
             name:
               | string
               | number
@@ -31,9 +32,10 @@ export default function ItemComponent({items}: any) {
           return (
             <TouchableOpacity onPress={onDelete}>
               <View
-                style={{backgroundColor: 'blue', marginVertical: 20}}
+                style={{backgroundColor: 'red', marginVertical: 20}}
                 key={index}>
-                <Text style={styles.itemtext}>{item.name}</Text>
+                <Text style={styles.itemtext}>{item.firstName}</Text>
+                <Text style={styles.itemtext}>{item.lastName}</Text>
               </View>
             </TouchableOpacity>
           );
